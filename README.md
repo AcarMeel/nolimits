@@ -1,0 +1,2 @@
+# nolimits
+static site
