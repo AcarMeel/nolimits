@@ -1,0 +1,93 @@
+#hero
+
+	background-image: linear-gradient(rgba($color1, .99), rgba($color2, .45)), url("../img/bg.jpg")
+	background-repeat: no-repeat
+	background-position: center center
+	background-size: cover
+	min-height: 100vh
+
+	#logo
+		position: absolute
+		left: 5%
+		top: 5%
+
+		font-weight: $bold  
+		text-transform: uppercase
+		letter-spacing: 2px 
+
+	.copy-wrapper
+		text-align: center  //center .more-info
+
+	.title
+		word-spacing: 12px
+		span 
+			border: 10px double $color3 
+			padding: .5em   
+			display: inline-block 
+			width: 35rem 
+			max-width: 90% 
+			text-align: center
+			font-weight: $light
+
+			em 
+				font-family: $cursive
+				font-style: normal
+
+
+	.more-info 
+		position: relative
+		top: 4rem
+		background-color: $color2
+		display: inline-block
+		width: 150px
+		height: 60px 
+		border-radius: 60px	
+		color: $color4
+
+		transition: background-color 300ms ease-in-out 100ms 
+
+		span, em, i
+			position: absolute
+			width: 100%
+			height: 100%
+			left: 0
+
+		span 
+			overflow: hidden	
+
+		em, i 
+			transition: transform 300ms ease-in-out 100ms 	
+
+		em 
+			transform: translateX(0)
+			line-height: 60px
+			text-align: center 
+
+		i 
+			transform: translateX(100%)	
+			background: url("../img/heart-24.svg") no-repeat center center
+
+		&:hover
+			background-color: darken($color2, 15%) 
+			em 
+				transform: translateX(-100%)
+
+			i 
+				transform: translateX(0)	
+		 
+		 		
+ 
+
+						
+@media screen and (max-width: 768px)
+	#hero
+		.title
+			span
+				width: 25rem
+
+
+@media screen and (max-width: 480px)
+	#hero
+		.title
+			span
+				width: 17rem 

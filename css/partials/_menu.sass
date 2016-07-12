@@ -1,0 +1,161 @@
+.nav-trigger
+	position: absolute
+	top: 20px
+	right: 20px
+	z-index: 2
+
+	overflow: hidden
+	text-indent: 100%
+	white-space: nowrap
+	color: transparent 
+
+	width: 40px
+	height: 40px
+	border-radius: 50%
+	cursor: pointer
+
+	visibility: hidden 
+	line-height: 22px 
+	background-color: darken($color1, 15%)
+
+	span
+		top: 50%	
+		left: 50%
+		bottom: auto
+		right: auto
+		transform: translateX(-50%) translateY(-50%)
+		transition: background-color 0.3s
+		&, &:before, &:after
+			position: absolute
+			background-color: $color4
+			height: 2px
+			width: 18px
+			border-radius: 25rem 
+
+		&:before, &:after
+			content: ""
+			left: 0
+			transition: transform 0.3s
+
+		&:before
+			transform: translateY(-6px)
+
+		&:after
+			transform: translateY(6px)	
+
+
+/*================= menu big screen =========*/
+
+
+.menu
+	position: absolute
+	top: 0
+	right: 5%
+
+	visibility: visible
+
+	line-height: 1
+	margin: 0 auto 3rem
+
+	ul.menu__list
+		position: relative
+		display: inline-block
+		
+		margin: 0
+		padding: 0
+
+	li.menu__item
+		display: inline-block
+		margin: 1em 0
+
+	a.menu__link
+		position: relative
+		display: inline-block
+		padding: 1em
+		font-size: 1.05em
+		font-weight: $bold
+		color: $color5
+		cursor: pointer
+		//user-select: none
+
+		transition: color 0.4s
+	
+		&::before, 
+		&::after
+			content: ""	
+			position: absolute
+			left: 0
+			width: 100%
+			height: 2px
+			background: $color2
+			transform: scale3d(0, 1, 1)
+			transition: transform 0.2s
+
+		&::before
+			top: 0
+			transform-origin: 0 50%
+
+		&::after
+			bottom: 0
+			transform-origin: 100% 50%
+
+		&:hover
+			color: $color2
+			&::before, &::after
+				transform: scale3d(1, 1, 1)
+				transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1)
+				transition-duration: 0.4s
+
+		&:hover,&:focus
+			outline: none
+
+/*===================== JQUERY PART ==============*/
+
+.fixed .menu
+	position: fixed
+	background-color: $color1
+	width: 90%
+
+
+.is-open.menu
+	visibility: visible
+
+
+.is-open.nav-trigger
+	span
+		background-color: transparent
+
+		&:before
+			 transform: rotate(45deg)
+
+		&:after
+			 transform: rotate(-45deg)
+
+  
+
+@media screen and (max-width: 768px)
+	.menu 
+		visibility: hidden
+		right: 0
+		background-color: $color1
+		width: 100%
+		height: 100%
+		text-align: center
+		z-index: 1
+		margin: 0
+		transition: background-color 300ms ease-in-out  
+		li.menu__item
+			display: block
+		a.menu__link
+			display: block
+			font-size: 2rem	 
+
+			&::before, &::after
+				visibility: hidden
+
+
+	.nav-trigger
+		visibility: visible	
+
+					    		
+
